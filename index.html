@@ -2,9 +2,95 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>yuanxin</title>
+	<title>时钟</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		#dial{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			border: 2px solid #000;
+			margin: 200px auto;
+			position: relative;
+		}
+		#ul1 li{
+			list-style: none;
+			width: 2px;
+			height: 10px;
+			background: #000;
+			position: absolute;
+			-webkit-transform-origin:0 100px;
+			left: 100px;
+		}
+		#ul1 li:nth-child(5n+1){
+			height: 15px;
+		}
+		#hour{
+			width: 8px;
+			height: 40px;
+			background: #000;
+			-webkit-transform-origin:bottom;
+			position: absolute;
+			position: absolute;
+			top: 60px;
+			left: 100px;
+		}
+		#minute{
+			width: 6px;
+			height: 60px;
+			background: #000;
+			-webkit-transform-origin:bottom;
+			position: absolute;
+			top: 40px;
+			left: 100px;
+		}
+		#seconds{
+			width: 4px;
+			height: 80px;
+			background: red;
+			-webkit-transform-origin:bottom;
+			position: absolute;
+			top: 20px;
+			left: 100px;
+		}
+	</style>
 </head>
 <body>
-	<h1>yuanxin11111111111111111111111111111</h1>
+	<div id="dial">
+		<ul id="ul1">
+		
+		</ul>
+		<div id="hour"></div>
+		<div id="minute"></div>
+		<div id="seconds"></div>
+	</div>
+<script>
+	var odial = document.getElementById('dial');
+	var oul1 = document.getElementById('ul1');
+	var ali = document.getElementsByTagName('li')
+	var html = '';
+	for(var i=0;i<60;i++)
+	{
+		oul1.innerHTML += '<li></li>';
+	}
+	for(var i=0;i<60;i++)
+	{
+		ali[i].style.WebkitTransform = "rotate("+i*6+"deg)";
+	}
+	function run(argument) {
+			var now = new Date();
+		var hour = now.getHours(),
+		minute=now.getMinutes(),
+		seconds=now.getSeconds();
+		document.getElementById("hour").style.WebkitTransform = "rotate("+(hour*30+minute/60*30)+"deg)";
+		document.getElementById("minute").style.WebkitTransform = "rotate("+minute*6+"deg)";
+		document.getElementById("seconds").style.WebkitTransform = "rotate("+seconds*6+"deg)";
+	}
+	run();
+	setInterval(run,1000);
+</script>
 </body>
 </html>

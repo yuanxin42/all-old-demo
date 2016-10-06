@@ -1,0 +1,282 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #161E2C;
+}
+a{
+	 text-decoration: none;
+}
+#main-body{
+	width: 100%;
+	background:  url(imgs/page-bg.jpg) top center no-repeat;
+	background-attachment: fixed;
+	position: absolute;
+}
+#head{
+	height: 80px;
+}
+#left{
+	width: 25%;
+	height: 800px;
+/*	background: red;*/
+	float: left;
+	margin-left: 5%;
+}
+#right{
+	width: 60%;
+	height:2000px;
+	/*background: green;*/
+	float: right;
+	margin-right: 5%;
+}
+#right-first{
+	height: 500px;
+	background:url(imgs/banner-bg-home.jpg) no-repeat center;
+	background-size: cover;
+}
+#left-first{
+	height: 155px;
+	background: url(imgs/menu-bg-home.png) no-repeat center;
+	background-size: cover;
+	cursor:pointer;
+}
+#left-first a{
+	display:block;
+	height: 20px;
+	margin-top: 120px;
+	margin-left: 30px;
+	position: absolute;
+	color: white;
+}
+#left-first a:hover{
+	color: green;
+}
+#left-second{
+	height: 150px;	
+	margin-top: 10px;
+}
+#left-second-one{
+	width: 46%;
+	height: 100%;
+	background: url(imgs/2.png) center;
+	float: left;
+}
+#left-second-two{
+	width: 46%;
+	height: 100%;
+	float: right;
+	background: url(imgs/3.png) center;
+}
+#left-three{
+	height: 300px;
+	background: url(imgs/menu-bg-gallery.png) no-repeat;
+	background-size: cover;
+	margin-top: 10px;
+}
+#left-four{
+	height: 160px;
+	background: black;
+	margin-top: 10px;
+}
+.color-top{/*上面的横杠颜色*/
+	height: 10px;
+	background:url(imgs/lv.png);
+}
+.color-top2{
+	height: 10px;
+	background:url(imgs/huang.png);
+}
+#title{
+	margin-top: 50px;
+}
+#title-all{
+	float: left;
+	width: 35px;
+	font-size: 100px;
+	font-weight:bolder;
+	color: #7FFFD4;
+}
+#title-top{
+	float: left;
+	font-size: 60px;
+}
+#title-down{
+	margin-top: 70px;
+	font-size: 25px;
+	margin-left: 50px;
+	position: absolute;
+	color: #D2691E;
+}
+#right-first-contain{
+	margin-top: 200px;
+	clear: both;
+	margin-left: 5%;
+	margin-right: 10%;
+}
+#button1{
+	width: 100px;
+	height:30px;
+	margin-top: 100px;
+	margin-left: 10%;
+	background: #696969;
+	color: white;
+}
+#right-two{
+	height: 510px;
+	/*background: red;*/
+	margin-top: 30px;
+}
+#right-two-left{
+	width: 48%;
+	height: 100%;
+	background: white;
+	float: left;
+}
+#right-two-left img{
+	width: 100%;
+	height: 215px;
+}
+#right-two-right{
+	width: 48%;
+	height: 100%;
+	background: white;
+	float: right;
+}
+#right-two-right img{
+	height: 215px;
+	width: 100%;
+}
+/**************右边的两张图**************/
+#right-two-left-contain{
+	/*float: left;*/
+	width: 35px;
+	font-size: 50px;
+	font-weight:bolder;
+	color: #9370D8;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+#right-two-left-contain-top{
+	margin-top: -60px;
+	margin-left: 20px;
+	font-size: 30px;
+	/*color: black;*/
+}
+#right-two-left-contain-down{
+	font-size: 15px;
+	margin-left: 20px;
+	position: absolute;
+	color: black;
+}
+#right-two-left-body{
+	margin-top: 50px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+#right-two-right-contain{
+	/*float: left;*/
+	width: 35px;
+	font-size: 50px;
+	font-weight:bolder;
+	color: #FFA500;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+#right-two-right-contain-top{
+	margin-top: -60px;
+	margin-left: 20px;
+	font-size: 30px;
+	/*color: black;*/
+}
+#right-two-right-contain-down{
+	font-size: 15px;
+	margin-left: 20px;
+	position: absolute;
+	color: black;
+}
+#right-two-right-body{
+	margin-top: 50px;
+	margin-left: 5%;
+	margin-right: 5%;
+}/*************右边的两张图**************/
+/****************右边最下面图片***************************/
+#right-three{
+	height: 470px;
+	background: white;
+	margin-top: 40px;
+	clear: both;
+}
+#three-title{
+	width: 35px;
+	font-size: 50px;
+	font-weight:bolder;
+	color: #FF6347;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+#three-title-top{
+	margin-top: -60px;
+	margin-left: 20px;
+	font-size: 30px;
+}
+#three-title-down{
+	font-size: 15px;
+	margin-left: 20px;
+	position: absolute;
+	color: black;
+}
+@media screen and (max-width: 1000px)
+{
+	#left{
+		width: 32%;
+	}
+	#right{
+		width: 50%;
+		height: 2500px;
+	}
+	#title-all{/*javaspript那块*/
+		font-size: 70px;
+	}
+	#title-top{
+		font-size: 30px;
+	}
+	#title-down{
+		font-size: 20px;
+		margin-top: 50px;
+		margin-left: 30px;
+	}
+	#right-two-left{
+		width: 100%;
+	}
+	#right-two-right{
+		width: 100%;
+	}
+	#right-three{
+		width: 100%;
+	}
+}
+@media screen and (max-width: 600px)
+{
+	#left{
+		width: 70%;
+		margin-left: 15%;
+	}
+	#right{
+		width: 70%;
+		margin-right: 15%;
+		height: 2500px;
+	}
+	#title-all{/*javaspript那块*/
+		font-size: 50px;
+	}
+	#title-top{
+		font-size: 25px;
+	}
+	#title-down{
+		font-size: 10px;
+		margin-top: 35px;
+		margin-left: 40px;
+	}
+}

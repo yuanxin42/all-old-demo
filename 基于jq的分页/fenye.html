@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分页了分页了</title>
+    <style lang="">
+        body {
+            width: 100%;
+            height: 100%;
+            font-size: 13px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a,
+        button,
+        input {
+            outline: none;
+            color: black;
+        }
+
+        .fenye {
+            width: 1000px;
+            height: 50px;
+            margin: 50px auto;
+            /* background: palegreen; */
+            padding-top: 30px;
+        }
+
+        .fenye_box {
+            height: 30px;
+            float: left;
+            line-height: 30px;
+        }
+
+        .fenye_title {
+            width: 100px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            float: left;
+        }
+
+        .fenye_select {
+            width: 100px;
+            height: 28px;
+            border: 1px solid #ccc;
+            float: left;
+        }
+
+        .fenye_btn {
+            display: inline-block;
+            width: 35px;
+            height: 28px;
+            float: left;
+            text-align: center;
+            line-height: 28px;
+            cursor: pointer;
+        }
+
+        .fenye_btn a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .fenye_input {
+            width: 46px;
+            height: 26px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .fenye_sousuo {
+            display: block;
+            height: 28px;
+            line-height: 28px;
+            float: left;
+        }
+
+        .contain {
+            width: 1200px;
+            height: 500px;
+            margin: 120px auto;
+            background: palevioletred;
+            padding-top: 30px;
+        }
+
+        .list {
+            height: 30px;
+            padding-left: 30px;
+            line-height: 30px;
+        }
+
+        .list_child {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .blue {
+            color: #409eff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fenye">
+
+        <span class="fenye_title">共<span class="data_num"></span>条</span>
+        <select class="fenye_select" name=""> 
+            <option value="5">5条/页</option> 
+            <option value="10">10条/页</option> 
+       </select>
+        <ul class="fenye_box">
+            <li class="fenye_btn left">
+                <a href="#">
+                    <<</a>
+            </li>
+            <li class="fenye_btn"><a class="blue" href="#">1</a></li>
+            <li class="fenye_btn"><a href="#">2</a></li>
+            <li class="fenye_btn"><a href="#">3</a></li>
+            <li class="fenye_btn right"><a href="#">>></a></li>
+        </ul>
+        <span class="fenye_sousuo">
+            前往&nbsp<input class="fenye_input" type="text">&nbsp页
+        </span>
+        <span style="border: 1px solid #ccc; margin-left: 20px;" class="fenye_btn select_btn" href="">查询</span>
+
+
+    </div>
+
+    <div class="contain">
+
+    </div>
+    <script src="./jquery-3.2.1.js"></script>
+    <script>
+        let fenye = {
+            init: function (data) {   // 初始化
+                let that = this;
+                $.get("http://10.187.101.155:8080/mockjsdata/27/updelog/data", function (res) {
+                    data = res.data.table;
+                    that.generation_fenyebtn(data);  //生成分页小按钮
+                    that.renderdata(data, 0);   //给页面渲染数据  
+                    that.fenye_btn(data);   //左右按钮
+                    that.select_data(data);  //查询第几页的数据
+                    that.select_change(data);//  数据条数更改，页面刷新
+                    $(".data_num").text(data.length)
+                });
+            },
+            renderdata: function (data, page) {   //page当前页 渲染对应页面的数据
+                $('.contain').html("")
+                let page_num = $('.fenye_select').val()  //获取一页显示多少数据
+                let arr = data.slice(parseInt(page * page_num), parseInt((page + 1) * page_num))
+                if (arr.length == 0) {
+                    alert("这页没数据")
+                    for (let i = 1; i <= 3; i++) {
+                        $(".fenye_box li a").eq(i).text(i)
+                    }
+                    this.renderdata(data, 0)
+                    // this.renderdata(data,1)
+                } else {
+                    for (let i = 0; i < arr.length; i++) {
+                        let child = $("<p class = 'list'></p>")
+                        for (let attribute in arr[i]) {
+                            let grandchild = $("<span class = 'list_child'></span>").text(arr[i][attribute])
+                            child.append(grandchild)
+                        }
+                        $('.contain').append(child)
+                    }
+                }
+
+            },
+            generation_fenyebtn: function (data) {   //给分页按钮生成点击事件
+                var that = this;
+                for (let i = 1; i <= 3; i++) {
+                    $(".fenye_box li a").eq(i).on("click", function () {
+                        let btn_val = parseInt($(this).html())    //获取被点击的按钮的数字
+                        that.renderdata(data, btn_val - 1)
+                        let first_val = parseInt($(".fenye_box li a").eq(1).html()); //获取变色按钮的数字
+                        // alert(first_val)
+                        let data_page = Math.ceil(data.length / parseInt($('.fenye_select').val()))  //最多多少页
+                        if (data_page >= 3) {   //当总页数大于li的个数，进行切换 
+                            for (let j = 1; j <= 3; j++) {
+                                if ((btn_val + j - 1) <= data_page) {
+                                    $(".fenye_box li a").eq(j).text(btn_val + j - 1)
+                                } else {
+                                    $(".fenye_box li a").eq(j).text((btn_val + j - 1) % data_page)
+                                }
+                            }
+                        }
+                    })
+                }
+            },
+            fenye_btn: function (data) {    //分页左右按钮点击事件
+                let that = this;
+                $('.left').on('click', function () {
+                    let first_val = parseInt($(".fenye_box li a").eq(1).html()); //获取变色按钮的数字    
+                    let data_page = Math.ceil(data.length / parseInt($('.fenye_select').val()))  //最多多少页   
+                    for (let i = 1; i <= 3; i++) {
+                        if (first_val + i < data_page + 1) {
+                            $(".fenye_box li a").eq(i).text(first_val + i)
+                            that.renderdata(data, first_val)
+                        }
+                        else {
+                            if ((first_val + i) % data_page == 0) {
+                                $(".fenye_box li a").eq(i).text(data_page)
+                            } else {
+                                $(".fenye_box li a").eq(i).text((first_val + i) % data_page)
+                            }
+                            if (first_val == data_page) {
+                                that.renderdata(data, 0)
+                            } else {
+                                that.renderdata(data, first_val)
+                            }
+                        }
+                    }
+
+                })
+                $('.right').on('click', function () {
+                    let first_val = parseInt($(".fenye_box li a").eq(1).html()); //获取变色按钮的数字    
+                    let data_page = Math.ceil(data.length / parseInt($('.fenye_select').val()))  //最多多少页  
+                    for (let i = 1; i <= 3; i++) {
+                        let val = parseInt($(".fenye_box li a").eq(i).html())   //获取自己当前的数字
+                        if (val == 1) {
+                            $(".fenye_box li a").eq(i).text(data_page)
+                        } else {
+                            val = val - 1;
+                            $(".fenye_box li a").eq(i).text(val)
+                        }
+                    }
+                    if (first_val == 1) {
+                        that.renderdata(data, data_page - 1)
+                    } else {
+                        that.renderdata(data, first_val - 2)
+                    }
+
+                })
+            },
+            select_data: function (data) {   //输入框查询数据
+                var that = this;
+                $(".select_btn").on("click", function () {
+                    let val = $(".fenye_input").val()
+                    let page_num = $('.fenye_select').val()
+                    let first_val = parseInt($(".fenye_box li a").eq(1).html());  //获取变色的数字
+                    val = val || first_val
+                    that.renderdata(data, val - 1)
+                })
+            },
+            select_change: function (data) {   //条数更改,页面刷新
+                let that = this;
+                $(".fenye_select").change(function () {
+                    for (let i = 1; i <= 3; i++) {
+                        $(".fenye_box li a").eq(i).text(i)
+                    }
+                    that.renderdata(data, 0)
+                })
+            }
+
+        }
+
+
+        fenye.init()
+    </script>
+</body>
+
+</html>

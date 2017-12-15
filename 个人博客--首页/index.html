@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+
+<body>
+    <div class="warp">
+        <div class="header">
+            <a href="" class="head_tit" data-scroll-reveal="enter right over 1s">圆心</a>
+            <a class="head_blogimg" data-scroll-reveal="enter right over 1s" href=""><img src="./img/QQ20171206165735.png" alt=""></a>
+            <ul class="head_text">
+                <li class="head_text_one" data-scroll-reveal="enter right and move 100px  after 1s">从不羡慕别人的优秀，因为相信自己也可以优秀。</li>
+                <li class="head_text_two" data-scroll-reveal="enter right and move 100px  after 1s">世界不只有眼前的苟且,还有&nbsp汉堡&nbsp和&nbsp炸鸡&nbsp!&nbsp!&nbsp!</li>
+                <li class="head_text_three">--by:<span class="">圆心</span></li>
+            </ul>
+            <img class="head_tea" src="./img/logo-pic-bg.jpg" alt="">
+        </div>
+        <ul class="title">
+            <li><a href="">首页</a></li>
+            <li><a href="">个人插件</a></li>
+            <li><a href="">vue入门教程</a></li>
+            <li><a href="">学无止境</a></li>
+            <li><a href="">个人日记</a></li>
+            <li><a href="">留言板</a></li>
+        </ul>
+        <div class="banner">
+            <div class="banner-left">
+                <div class="big_img">
+                    <img src="./img/lunbo-5.jpg" alt="">
+                    <img src="./img/lunbo-4.jpg" alt="">
+                    <img src="./img/lunbo-3.jpg" alt="">
+                    <img src="./img/lunbo-1.jpg" alt="">
+                    <img src="./img/lunbo-2.jpg" alt="">
+                </div>
+                <div class="small_img">
+                    <img src="./img/lunbo-5.jpg" alt="">
+                    <img src="./img/lunbo-4.jpg" alt="">
+                    <img src="./img/lunbo-3.jpg" alt="">
+                    <img src="./img/lunbo-1.jpg" alt="">
+                    <img class="small_img_style" src="./img/lunbo-2.jpg" alt="">
+                </div>
+            </div>
+            <div class="banner-right">
+                <div class="heiban_left">
+                    &nbsp&nbsp&nbsp&nbsp这已经是不知道第几次要自己写博客了，之前也写过很多，但是，都不完善，最后，也就不了了之，这次之所以写博客，只是想把自己的学习过程的点点滴滴，记录下来。。。
+                </div>
+                <div class="heiban_right">
+                    <p>每&nbsp日&nbsp寄&nbsp语</p>
+                    <span style="font-size:14px;">以后每增加的新东西，就在小黑板上=.=！</span>
+                </div>
+            </div>
+        </div>
+        <div class="nav-pc">
+
+        </div>
+        <div class="knowledge">
+            <div class="knowledge_left left">
+                <p>
+                    <div class="title-h2">个人博客模板<span>Blog Template</span></div>
+                </p>
+                <ul class="knowledge_box">
+                    <li class="knowledge_page">
+                        <div class="knpage_left left">
+                            09-08 2007
+                        </div>
+                        <div class="knpage_bar left" >
+                            <div class="kn_cir"></div>
+                        </div>
+                        <div class="knowledge_tit left" data-scroll-reveal="enter right over 1s">
+                            <div class="sds"></div>
+                        </div>
+                    </li>
+                    <li class="knowledge_page">
+                        <div class="knpage_left left">
+                            09-08 2007
+                        </div>
+                        <div class="knpage_bar left">
+                            <div class="kn_cir"></div>
+                        </div>
+                        <div class="knowledge_tit left" data-scroll-reveal="enter right over 1s">
+                            <div class="sds"></div>
+                        </div>
+                    </li>
+                    <li class="knowledge_page">
+                        <div class="knpage_left left">
+                            09-08 2007
+                        </div>
+                        <div class="knpage_bar left">
+                            <div class="kn_cir"></div>
+                        </div>
+                        <div class="knowledge_tit left" data-scroll-reveal="enter right over 1s">
+                            <div class="sds"></div>
+                        </div>
+                    </li>
+                    <li class="knowledge_page">
+                        <div class="knpage_left left">
+                            09-08 2007
+                        </div>
+                        <div class="knpage_bar left">
+                            <div class="kn_cir"></div>
+                        </div>
+                        <div class="knowledge_tit left" data-scroll-reveal="enter right over 1s">
+                            <div class="sds"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            Design by：圆心 wx : yx1017123610
+        </div>
+    </div>
+
+    <script src="./js/scrollReveal.js"></script>
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+        if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
+            (function () {
+                window.scrollReveal = new scrollReveal({ reset: true });
+            })();
+        };
+        let lunbo = {    //轮播图
+            init: function () {
+                let that = this;
+                for (let i = 0; i < $(".big_img img").length; i++) {
+                    $(".big_img img").eq(i).css({ "zIndex": i })
+                }
+                timer = setInterval(this.run, 2000)
+                $(".banner-left").stop().hover(function () {
+                    clearInterval(that.timer)
+                }, function () {
+                    that.timer = setInterval(lunbo.run, 2000)
+                })
+            },
+            run: function () {
+                clearInterval(this.timer)
+                for (let i = 0; i < $(".big_img img").length; i++) {
+                    let num = $(".big_img img").eq(i).css("zIndex")
+                    if (num == ($(".big_img img").length - 1)) {
+                        $(".big_img img").eq(i).animate({ zIndex: 0, opacity: "0" });
+                        $(".small_img img").eq(i - 1).siblings().removeClass("small_img_style");
+                        $(".small_img img").eq(i - 1).addClass("small_img_style");
+                    } else {
+                        $(".big_img img").eq(i).animate({ zIndex: parseInt(num) + 1, opacity: "1" })
+                    }
+                }
+            }
+        }
+        lunbo.init()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, runial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .odiv {
+            width: 100px;
+            height: 100px;
+            background: palegreen;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 20px;
+        }
+
+        #odiv {
+            width: 100px;
+            height: 100px;
+            background: paleturquoise;
+            border-radius: 50%;
+            position: absolute;
+            line-height: 100px;
+            text-align: center;
+            left: 0;
+            top: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="odiv">startmove</div>
+    <div id="div1" class="odiv">
+        div1
+    </div>
+    <div id="div2" class="odiv">
+        div2
+    </div>
+
+
+    <script>
+        var animate = {     //目前只能用于px类的属性     starmove 的  没做透明度判断
+            init: function (obj, json) {  //传入要改变的对象，，和要改变的属性   
+                for (val in json) {
+                    this.startmove(obj, val, json[val])
+                }
+            },
+            getstyle: function (obj, styleName) {
+                if (obj.currentStyle) {
+                    return obj.currentStyle[styleName];
+                } else {
+                    return getComputedStyle(obj, null)[styleName];
+                }
+            },
+            startmove: function (obj, obj_style, style_val) {   //传入 对象，，对象要变化的属性，，对象要变化的值
+               
+                clearInterval(timer)
+                var timer = setInterval(function () {
+                    var num = parseInt(animate.getstyle(obj, obj_style))
+                    var run_number = (style_val - num) / 6    //运动速度
+                    run_number = run_number > 0 ? Math.ceil(run_number) : Math.floor(run_number);
+                    if (run_number < 1) {
+                        obj.style[obj_style] = style_val + 'px';
+                        run_number = 0;
+                        clearInterval(timer)
+                    } else {
+                        obj.style[obj_style] = num + run_number + 'px';
+                    }
+                }, 50)
+            }
+        }
+
+        /*   tween.js 中几个重要的参数，所有的算法，都是围绕这几个参数
+        * t: current time（当前时间）；
+        * b: beginning value（初始值）；
+        * c: change in value（变化量）；
+        * d: duration（持续时间）。
+        */
+        function tweenJS(obj, val, velocity, t, c, d) {
+            var getstyle = function () {
+                var b;
+                if (obj.currentStyle) {
+                    b = parseInt(obj.currentStyle[val]);  //b: beginning value（初始值）；
+                }
+                else {
+                    b = parseInt(getComputedStyle(obj, false)[val]);
+                }
+                return b;
+            }
+            var run = function () {      //动的对象   动的属性  
+                if (!window.requestAnimationFrame) {
+                    requestAnimationFrame = function (fn) {
+                        setTimeout(fn, 17);
+                    };
+                }
+                t++;
+                var value = run[velocity](t, b, c, d);
+                obj.style[val] = value + 'px'
+                if (t < d) {
+                    requestAnimationFrame(run);
+                } else {
+                }
+            }
+            run.Linear = function (t, b, c, d) {
+                return c * t / d + b;
+            }
+            run.Quad = function (t, b, c, d) {
+                return c * (t /= d) * t + b;
+            }
+            b = getstyle()
+            run()
+        }
+        var odiv = document.getElementById("odiv");   //亲测，，宽度，高度.left  top
+        animate.init(odiv, { left: 500 });
+        var div1 = document.getElementById("div1")
+        var div2 = document.getElementById("div2")
+        tweenJS(div1, 'width', 'Linear', 0, 500, 10)
+        tweenJS(div2, 'width', 'Quad', 0, 500, 10)
+    </script>
+</body>
+
+</html>

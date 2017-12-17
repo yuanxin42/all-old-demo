@@ -1,0 +1,61 @@
+.demo_left{
+    width: 850px;
+    height: 800px;
+     /* background: red;  */
+    float: left;
+}
+.demo_right{
+    width: 350px;
+    height: 800px;
+    float: right;
+    margin-top: 30px;
+}
+.demo_right button{
+    width: 26%;
+    height: 30px;
+    float: left;
+    background: white;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20px;
+}
+.demo_right h3{
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.demo_tit{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+.dotted_line{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
+.demo_img{
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+}
+.demo_img img{
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+}
+.demo_btn{
+    text-align: center;
+    margin-top: 40px;
+}
+.demo_btn a{
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: -50px;
+    margin-right: 100px;
+    border: 1px solid #ccc;
+}

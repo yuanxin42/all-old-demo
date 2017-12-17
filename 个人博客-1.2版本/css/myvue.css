@@ -1,0 +1,49 @@
+.warp{
+    height: 3000px;
+}
+.vue-left{
+    width: 850px;
+    height: 600px;
+    /* background: blue; */
+    float: left;
+}
+.vue-right{
+    width: 320px;
+    height: 600px;
+    /* background: purple; */
+    float: left;
+    margin-top: 40px;
+    margin-left: 30px;
+    text-align: center;
+}
+.vue-right p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.vue-logo{
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+}
+.vue-tit{
+    width: 100%;
+    /* background: red; */
+    margin-top: 30px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.vuetitimg{
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+}
+.vue-moudle{
+    margin-top: 10px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}

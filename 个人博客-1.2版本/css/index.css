@@ -1,0 +1,176 @@
+/*** 轮播图和小黑板部分 **/
+.banner{
+    width: 100%;
+    height: 320px;
+    margin-top: 10px;
+}
+.banner-left{
+    width: 650px;
+    height: 300px;
+    float: left;
+}
+.banner-right{
+    width: 550px;
+    height: 300px;
+    float: right;
+    background: url("../img/heiban.jpg") no-repeat; 
+    background-size: 100% 100%;
+    border-radius: 3px;
+}
+.big_img{
+    width: 480px;
+    height: 300px;
+    background: red;
+    float: left;
+    position: relative;
+}
+.big_img img{
+    width: 480px;
+    height: 300px;
+    position: absolute;
+}
+.small_img{
+    padding-left: 20px;
+    padding-right: 20px;
+    float: left;
+    width: 100px;
+    height: 300px;
+     margin-top: -5px; 
+}
+.small_img img{
+    width: 100px;
+    height: 48px;
+    margin-top: 5px; 
+    cursor: pointer;
+}
+.small_img_style{
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-left: -10px;
+    border-radius: 5px;
+}
+
+.heiban_left{
+    width: 250px;
+    height: 150px;
+    float: left;
+    /* background: red; */
+    color: gray;
+    margin-top: 100px;
+    margin-left: 40px;
+}
+.heiban_right{
+    width: 150px;
+    height: 100px;
+    float: right;
+    color: white;
+    font-size: 20px;
+    margin-top: 100px;
+    margin-right: 50px;
+    /* background: blue; */
+}
+.title-h2{
+    width: 215px;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    background: #4b5153;
+    box-shadow: 5px 3px 10px #756f71;
+    border-radius: 3px;
+    margin: 0 0 10px 3px;
+    text-align: center;
+}
+.title-h2 span {
+    color: #32c7f7;
+    font-size: 14px;
+    padding-left: 10px;
+}
+.knowledge{
+    width: 1200px;
+    height: 900px;
+    /* background: #8086b7; */
+}
+.knowledge_left{
+    width: 1150px;
+    /* height: 500px; */
+    /* background: blue; */
+}
+.knpage_left{
+    width: 60px;
+    height: 200px;
+    /* background: red; */
+}
+.knowledge_page{
+    width: 1150px;
+    height: 200px;
+}
+.knowledge_tit{
+    width: 950px;
+    height: 180px;
+    background: #bfab86;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: relative;
+}
+.knpage_bar{
+    width: 10px;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 50px;
+    background: #bfab86;
+}
+.sds{
+    height: 0; width: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent; 
+    border-right: 8px solid #bfab86;
+    position: absolute;
+    left: -8px;
+    top: 13px;
+}
+.nav-pc{
+    width: 1200px;
+    height: 30px;
+    margin-bottom: 20px;
+    background: #ccc;
+    border-radius: 10px;
+}
+.kn_cir{
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: 14px;
+    background: white;
+    border-radius: 50%;        
+    border: 5px solid #bfab86;
+}
+.footer{
+    width: 1200px;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    background: #66cccc;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+}
+.kn_img{
+    width: 200px;
+    height: 120px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.kn-text{
+    width: 700px;
+    height: 120px;
+    float: right;
+    margin-top: 30px;
+}
+.kn_img img{
+    width: 200px;
+    height: 120px;
+}

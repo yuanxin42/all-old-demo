@@ -1,0 +1,77 @@
+.imm-header {
+    height: 235px;
+    background: url(../image/top-bg@2x.jpg) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+.imm-content {
+    padding-bottom: 19px;
+    border-bottom: 1px solid #CCCECD;
+    background: #EDEEED url(../img/content-bg@2x.png);
+    -webkit-background-size: 16px 16px;
+    background-size: 16px 16px;
+}
+.imm-download {
+    margin: 0;
+    padding-top: 11px;
+    height: 58px;
+    border-bottom: 1px solid #D6D7D6;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.09), inset 0 -1px #FEFFFE;
+    box-shadow: 0 0 5px rgba(0,0,0,.09), inset 0 -1px #FEFFFE;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 100%;
+    font-weight: 400;
+}
+.imm-download-top {
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.39);
+    box-shadow: 0 1px 3px rgba(0,0,0,.45), inset 0 1px rgba(255,255,255,.39);
+    border: 1px solid;
+    border-color: #2986CB #226FAF #185994;
+    background-color: #2f90d4;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#176fc2),to(#2f90d4));
+    background-image: -webkit-linear-gradient(bottom, #176fc2, #2f90d4);
+    background-image: linear-gradient(to top, #176fc2, #2f90d4);
+}
+.imm-download-button {
+    display: inline-block;
+    width: 220px;
+    height: 36px;
+    line-height: 35px;
+    border-radius: 17px;
+    font-size: .9375em;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px rgba(0,0,0,.36);
+    vertical-align: top;
+}
+.imm-section {
+    padding: 22px 21px 14px 13px;
+}
+.imm-logo {
+    width: 146px;
+    height: 43px;
+    line-height: 38px;
+    margin: 3px 0 0 6px;
+    color: #FBFCFD;
+    font-family: 'Myriad Pro';
+    font-size: 100%;
+    font-weight: 400;
+    text-shadow: 0 1px 1px rgba(0,0,0,.68);
+    text-indent: 44px;
+    background-image: url(../image/logo-bg@1x.png);
+    background-image: -webkit-image-set(url(../image/logo-bg@1x.png) 1x, url(../image/logo-bg@2x.png) 2x);
+    background-repeat: no-repeat;
+    -webkit-background-size: 45px 43px;
+    background-size: 45px 43px;
+    white-space: nowrap;
+    position: absolute;
+}
+.imm-logo-sup {
+    font-size: 0.875em;
+    font-family: Tahoma;
+}

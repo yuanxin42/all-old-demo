@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    display: block;
+}
+body{
+    display: block;
+}
+a{
+    text-decoration: none;
+}

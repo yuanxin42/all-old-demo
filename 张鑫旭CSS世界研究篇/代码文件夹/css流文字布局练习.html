@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        .box{   
+             width: 200px;      
+             text-align: center; 
+            /* margin: 0 auto; */
+        }
+        .content{
+            display: inline-block;
+            text-align: left;
+        }
+        .ao{
+            display: inline-block; 
+            width: 0; 
+            outline: 1px solid black;
+        }
+        .ao:before{
+            content: "love 我 love ";
+            outline: 1px solid black;
+        }
+        .ao:after{
+            content: "你 love 我 ";
+            outline: 1px solid black;
+        }
+        .father{
+            width: 102x;
+        }
+        .son{
+            border: 1px solid black;
+             padding: 20px; 
+        }    
+    </style>
+   
+
+
+</head>
+<body>
+     <!--  文字少的时候居中，文字多的时候，换行局左  -->
+    <div class="box"><div class="content">文字居中</div></div>
+    <div class="box"><div class="content">文字居中文字居中文字居中文字居中文字居中文字居中文字居中文字居中</div></div>
+
+    <!--  首选最小宽度  写凹和凸   很神奇-->
+    <div class="ao">love 我 love</div>
+
+    <!--  比如一个盒子，宽度定死102px  这时设计师想在加20px的内边距？？怎么解，大多数选择将concent变为60.错 --》 宽度分离，，利用css的流  -->
+    <div class = "father"><div class= "son"></div></div>
+</body>
+</html>

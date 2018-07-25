@@ -1,0 +1,51 @@
+vuex的核心是store，store是一个容器，容器里包含着大部分的状态，vuex的状态存储是响应式的，vuex的状态存储是响应式的，vuex的状态存储是响应式的，当vue组件从store中读取状态的时候
+若store中的状态发生变化，那么相应的组件也会相应的得到高效更新，
+
+2.你不能直接改变store中的状态，改变store中的状态唯一途径就是显示的提交，你不能直接改变store中的状态，改变store中的状态唯一的途径就是显示的提交，mutation，mutation，mutation，
+这样使得我们可以方便的跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好的了解我们的应用，mutation  store.commit（方法名字）
+
+
+
+
+
+/**************************************/因为vuex是响应式的，，所以写在vue的计算属性中，最为靠谱，，这样，，vuex中的状态发生变化，对应的组件中的值也会发生改变
+
+
+这样需要频繁的导入，，，有更好的
+
+就是从根部注入到每一个子组件中  需要调用vue.use（vuex）
+
+
+mapstate辅助函数
+
+当一个组件需要获取多个状态的时候，将这些状态都声明为计算属性，会有些复杂和冗余，为了解决这一个贴问题
+我们可以使用mapstate，函数帮我们生成计算属性
+
+conputed：mapstate({
+	count: state=>state.count  === count: count 	
+})==>也可以写成
+
+mapstate([
+	"count"
+])
+对象展开运算符， mapstate函数返回的是一个对象，我们如何将它与局部计算属性混合使用。通常我们要使用一个工具，将多个
+对象合并成一个，然后传给computed属性，但是从有了对象展开运算符，我们节约极大的简化写法。。
+
+
+computed : {
+	localcomputed(){
+	}
+   ...mapstate（{}）
+}
+
+/***************************************/
+getter：
+有时候，我们需要从stote中的state派生出一些状态，例如，对列表进行过滤并计数
+computed：{
+	doneTodocount(){
+		return this.$store.state.todos.filter(todo => todo.done).length
+}
+}
+
+
+

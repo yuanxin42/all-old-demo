@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = {
+            x:'10',
+            get showx(){
+                return this.x+1;
+            },
+            set showx(y){
+                this.x = y*2;
+            }
+        }
+        data.showx=20
+        console.log(data.showx)
+        console.log(data.x)
+    </script>
+</body>
+</html>
